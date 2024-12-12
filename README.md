@@ -6,7 +6,7 @@
 ---
 
 # System architecture
-![插入圖片]()
+![插入圖片](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/System%20Architecture.png)
 
 ---
 
