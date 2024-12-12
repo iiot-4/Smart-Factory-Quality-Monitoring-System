@@ -31,9 +31,9 @@
 
 ---
 
-# AWS Cloud
+## AWS Cloud
 
-## AWS IoT SiteWise
+### AWS IoT SiteWise
 
 1. IAM 使用者設置：
    - 登入 AWS Management Console，進入 IAM 服務。
@@ -53,7 +53,7 @@
 
 ---
 
-## Amazon Managed Grafana
+### Amazon Managed Grafana
 
 1. 建立 Grafana Workspace：
    - 進入 Amazon Managed Grafana，點擊 Create workspace。
