@@ -44,10 +44,10 @@
 2. IoT SiteWise: Creating Asset Models and Assets:
    - Go to the IoT SiteWise service, click Models, and create a new model:
      - Name it WeightModel.
-     - ![Figure 2](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%202.png)
      - Add the following two types of definitions to the model:
        - Attribute Definitions: Used to record static properties (such as device name or specifications).
        - Measurement Definitions: Used to receive measurement data (such as weight data).
+       - ![Figure 2](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%202.png)
        - ![Figure 3](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%203.png)
 
    - Based on the WeightModel just created, add an asset:
@@ -68,9 +68,10 @@
      - Permission type: Select Service managed.
      - Choose AWS IAM Identity Center for identity management.
      - Select AWS IoT SiteWise as the data source.
-     - ![Figure 7](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%207.png)
+     
    - After creation, add the users who need to use Grafana to the Workspace user list.
    - Click the generated Grafana URL to log in to the Grafana Workspace.
+     - ![Figure 7](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%207.png)
      - ![Figure 8](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%208.png)
 
 2. Create Dashboard:
