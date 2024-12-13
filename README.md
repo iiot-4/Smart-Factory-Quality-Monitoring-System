@@ -1,7 +1,7 @@
 # Smart Factory Quality Monitoring System
 
-## 開發背景
-## 產品特點
+## Background
+## Features
 
 ---
 
