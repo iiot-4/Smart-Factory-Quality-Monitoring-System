@@ -16,80 +16,75 @@
 
 # Software – AWS Cloud
 
-## 本機端
+## Local Device
 
-1. 程式檔案： 
-   - 本機寫 SendData.py 程式，用於傳送數據到 AWS Cloud 的 IoT SiteWise。 
+1. Program File:
+   - Create a local script named SendData.py to send data to AWS Cloud's IoT SiteWise.
 
-2. 安裝必要套件： 
-   - 確保已安裝 AWS SDK for Python (boto3) 及其他所需的 Python 套件，例如 pandas。
-   - 安裝指令：`pip install boto3` 
+2. Install Necessary Packages:
+   - Ensure you have installed AWS SDK for Python (boto3) and other required Python packages like pandas.
+   - Installation command: `pip install boto3`
 
-3. 設置 AWS IAM 憑證： 
-   - 在 SendData.py 程式中，填入 AWS Cloud 提供的 Access_key 和 Secret_key，利用這些憑證建立與 AWS 的安全連線。 
+3. Configure AWS IAM Credentials:
+   - In the SendData.py script, enter the Access_key and Secret_key provided by AWS Cloud to establish a secure connection with AWS.
 
-4. 程式傳送數據： 
-   - 在 SendData.py 程式中，設定需要傳送到 IoT SiteWise 的數據格式，例如測量值（如重量）。
-   - 程式會以指定的時間間隔將數據傳送到 AWS。
+4. Sending Data:
+   - In the SendData.py script, set the data format to be sent to IoT SiteWise, such as measurements (e.g., weight).
+   - The script will send data to AWS at specified intervals.
 
 ## AWS Cloud
 
-1. IAM 使用者設置：
-   - 登入 AWS Management Console，進入 IAM 服務。 
-   - 建立新的 IAM 使用者。
-   - 為該使用者生成 Access Key 和 Secret Key，這些憑證將用於本機程式的連線配置。
-   - 在 Set permissions 步驟中，選擇 Attach policies directly，授予對 AWS SiteWise 的所有操作權限、AWS GRAFANA 的 write 和 read 權限。
-   ![圖一](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%201.png)
+1. IAM User Setup:
+   - Log in to the AWS Management Console and go to the IAM service.
+   - Create a new IAM user.
+   - Generate Access Key and Secret Key for the user, which will be used for the local script’s connection configuration.
+   - In the Set permissions step, select Attach policies directly and grant full access to AWS SiteWise operations and AWS GRAFANA's write and read permissions.
+   - ![Figure 1](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%201.png)
 
-2. IoT SiteWise 建立資產模型與資產： 
-   - 進入 IoT SiteWise 服務，點擊 Models，建立一個新的模型：
-     - 命名為 WeightModel。
-     - 在模型中加入以下兩類定義：
-       - Attribute Definitions：用於記錄靜態屬性（例如設備名稱或規格）。
-       - Measurement Definitions：用於接收測量數據（例如重量數據）。
-      ![圖二](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%202.png)
+2. IoT SiteWise: Creating Asset Models and Assets:
+   - Go to the IoT SiteWise service, click Models, and create a new model:
+     - Name it WeightModel.
+     - Add the following two types of definitions to the model:
+       - Attribute Definitions: Used to record static properties (such as device name or specifications).
+       - Measurement Definitions: Used to receive measurement data (such as weight data).
+      - ![Figure 2](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%202.png)
+      - ![Figure 3](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%203.png)
 
-      ![圖三](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%203.png)
-   
-   - 基於剛才建立的 WeightModel，新增資產（Asset）：
-     - 資產名稱：Weight1。
-     - 在新增過程中，指定 Measurement 的 alias(`/factory/Weight_test/Weight`)，用於數據的傳送和檢索。
-     ![圖四](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%204.png)
+   - Based on the WeightModel just created, add an asset:
+     - Asset name: Weight1.
+     - During the addition process, specify the Measurement alias (`/factory/Weight_test/Weight`) for data transmission and retrieval.
+     - ![Figure 4](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%204.png)
+     - ![Figure 5](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%205.png)
 
-     ![圖五](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%205.png)
-
-   - 完成後，確認資產頁面，可以利用本機執行 SendData.py ，確認傳送資料是否顯示在 Latest value（最新數據值）以及 Latest value timestamp（最新數據的時間戳）中。
-     ![圖六](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%206.png)
+   - After completion, verify the asset page. You can execute SendData.py locally to check if the transmitted data appears in the Latest value and Latest value timestamp fields.
+     - ![Figure 6](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%206.png)
 
 ## Amazon Managed Grafana
 
-1. 建立 Grafana Workspace： 
-   - 進入 Amazon Managed Grafana，點擊 Create workspace。
-   - 在建立過程中：
-     - 命名為 foodfactoryDemo。
-     - Permission type：選擇 Service managed。
-     - 選擇 AWS IAM Identity Center 作為身份管理方法。
-     - 在資料來源（Data Source）中選擇 AWS IoT SiteWise。
-   - 建立完成後，將需要使用 Grafana 的使用者新增到 Workspace 的使用者清單中。
-   - 點擊生成的 Grafana URL，登入 Grafana Workspace。
-     ![圖七](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%207.png)
-     
-     ![圖八](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%208.png)
+1. Create Grafana Workspace:
+   - Go to Amazon Managed Grafana and click Create workspace.
+   - During the creation process:
+     - Name it foodfactoryDemo.
+     - Permission type: Select Service managed.
+     - Choose AWS IAM Identity Center for identity management.
+     - Select AWS IoT SiteWise as the data source.
+   - After creation, add the users who need to use Grafana to the Workspace user list.
+   - Click the generated Grafana URL to log in to the Grafana Workspace.
+     - ![Figure 7](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%207.png)
+     - ![Figure 8](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%208.png)
 
-2. 建立儀表板： 
-   - 在 Grafana Workspace 中，新增資料來源，選擇 AWS IoT SiteWise。
-   - 建立新的儀表板，選擇 IoT SiteWise 作為數據來源。
-   - 選擇之前在 SiteWise 中建立的資產 Weight1，並選擇其 Measurement 數據作為 Time Series 資料顯示在儀表板上。
-   - 配置儀表板樣式，例如：折線圖。
-     ![圖九](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%209.png)
-     
-     ![圖十](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%2010.png)
-     
-     ![圖十一](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%2011.png)
+2. Create Dashboard:
+   - In the Grafana Workspace, add a data source and select AWS IoT SiteWise.
+   - Create a new dashboard, selecting IoT SiteWise as the data source.
+   - Select the asset Weight1 previously created in SiteWise and choose its Measurement data to display as Time Series data on the dashboard.
+   - Configure the dashboard style, such as line charts.
+     - ![Figure 9](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%209.png)
+     - ![Figure 10](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%2010.png)
+     - ![Figure 11](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%2011.png)
 
-## 流程完成與確認
+## Process Completion and Verification
 
-1. 執行本機的 SendData.py 程式，將測量數據傳送到 AWS Cloud。
-2. 登入 AWS SiteWise，確認資產 Weight1 中的 Measurements 欄位能顯示最新數據及時間戳。
-3. 登入 Grafana，確認儀表板能即時顯示傳送的數據。
-   ![圖十二](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%2012.png)
+1. Run the local SendData.py script to send measurement data to AWS Cloud.
+2. Log in to AWS SiteWise and confirm that the Measurements field in the Weight1 asset displays the latest data and timestamp.
+3. Log in to Grafana and confirm that the dashboard displays the transmitted data in real-time.
+   - ![Figure 12](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%2012.png)
