@@ -16,21 +16,21 @@
 
 # Software – AWS Cloud
 
-## Local Device
+## Local machine
 
 1. Program File:
-   - Create a local script named SendData.py to send data to AWS Cloud's IoT SiteWise.
+   - Create a SendData.py on local to send data to AWS Cloud's IoT SiteWise.
 
 2. Install Necessary Packages:
    - Ensure you have installed AWS SDK for Python (boto3) and other required Python packages like pandas.
    - Installation command: `pip install boto3`
 
 3. Configure AWS IAM Credentials:
-   - In the SendData.py script, enter the Access_key and Secret_key provided by AWS Cloud to establish a secure connection with AWS.
+   - In the SendData.py, enter the Access_key and Secret_key provided by AWS Cloud to establish a secure connection with AWS.
 
 4. Sending Data:
-   - In the SendData.py script, set the data format to be sent to IoT SiteWise, such as measurements (e.g., weight).
-   - The script will send data to AWS at specified intervals.
+   - In the SendData.py, set the data format to be sent to IoT SiteWise, such as measurements (e.g., weight).
+   - The SendData.py will send data to AWS at specified intervals.
 
 ## AWS Cloud
 
@@ -44,11 +44,11 @@
 2. IoT SiteWise: Creating Asset Models and Assets:
    - Go to the IoT SiteWise service, click Models, and create a new model:
      - Name it WeightModel.
+     - ![Figure 2](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%202.png)
      - Add the following two types of definitions to the model:
        - Attribute Definitions: Used to record static properties (such as device name or specifications).
        - Measurement Definitions: Used to receive measurement data (such as weight data).
-      - ![Figure 2](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%202.png)
-      - ![Figure 3](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%203.png)
+       - ![Figure 3](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%203.png)
 
    - Based on the WeightModel just created, add an asset:
      - Asset name: Weight1.
@@ -68,9 +68,9 @@
      - Permission type: Select Service managed.
      - Choose AWS IAM Identity Center for identity management.
      - Select AWS IoT SiteWise as the data source.
+     - ![Figure 7](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%207.png)
    - After creation, add the users who need to use Grafana to the Workspace user list.
    - Click the generated Grafana URL to log in to the Grafana Workspace.
-     - ![Figure 7](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%207.png)
      - ![Figure 8](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%208.png)
 
 2. Create Dashboard:
