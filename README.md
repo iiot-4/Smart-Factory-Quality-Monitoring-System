@@ -92,7 +92,7 @@ Open the `mosquitto.conf` file in the installation directory and add the followi
    - In the connect_AWS.py, enter the Access_key and Secret_key provided by AWS Cloud to establish a secure connection with AWS.
 4. Sending Data:
    - In the connect_AWS.py, set the data format to be sent to IoT SiteWise, such as measurements (e.g., weight).
-   - The SendData.py will send data to AWS at specified intervals.
+   - The connect_AWS.py will send data to AWS at specified intervals.
 ## AWS Cloud
 1. IAM User Setup:
    - Log in to the AWS Management Console and go to the IAM service.
@@ -114,7 +114,7 @@ Open the `mosquitto.conf` file in the installation directory and add the followi
        ![Figure 4](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%204.png)
        ![Figure 5](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%205.png)
 
-   - After completion, verify the asset page. You can execute SendData.py locally to check if the transmitted data appears in the Latest value and Latest value timestamp fields.
+   - After completion, verify the asset page. You can execute connect_AWS.py locally to check if the transmitted data appears in the Latest value and Latest value timestamp fields.
      ![Figure 6](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%206.png)
 ## Amazon Managed Grafana
 1. Create Grafana Workspace:
