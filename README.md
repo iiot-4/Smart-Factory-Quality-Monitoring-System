@@ -1,5 +1,7 @@
 # Smart Factory Quality Monitoring System
+This project is designed to measure weight using an ESP-32 microcontroller, load cell, and MQTT for data transmission. The system uploads the data to an AWS database for further analysis and prompts for regular updates of the measured object.
 
+---
 ## Background
 ## Features
 
