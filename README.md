@@ -14,13 +14,15 @@ This project is designed to measure weight using an ESP-32 microcontroller, load
 
 # Hardware – Arduino
 ## Required Components
-- **NodeMCU ESP-32** x1  
-- **HX711** x1  
+- **NodeMCU ESP-32** 
+- **HX711** 
 - **LCD module**  
 - **Load cell**  
 *(For a detailed list of components, refer to the BOM file.)*
----
-
+## Setup Instructions
+### 1. Hardware Connections
+Connect the components as shown in the diagram below:  
+![Hardware Connections](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/Arduino%20%26%20MQTT/Fig%201.png)
 # Software – AWS Cloud
 
 ## Local machine
