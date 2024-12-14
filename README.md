@@ -22,7 +22,7 @@ This project is designed to measure weight using an ESP-32 microcontroller, load
 ## Setup Instructions
 ### 1. Hardware Connections
 Connect the components as shown in the diagram below:  
-![Hardware Connections](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/Arduino%20%26%20MQTT/Fig%201.png)
+![Hardware Connections](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/Aruduino%20%26%20MQTT/Fig%201.png)
 ### 2. Arduino Environment Setup
 1. **Download and install Arduino IDE**  
    Visit the [Arduino IDE download page](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE) and install it based on your operating system.  
@@ -40,7 +40,7 @@ Connect the components as shown in the diagram below:
 4. **Install the ESP32 Board**  
    - Go to **Tools -> Board -> Boards Manager** and search for **ESP32**.  
    - Install the board package (refer to the diagram below):  
-     ![Boards Manager](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/Arduino%20%26%20MQTT/Fig%202.png)  
+     ![Boards Manager](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/Aruduino%20%26%20MQTT/Fig%202.png)  
 5. **Install required libraries**  
    - Open the **Library Manager**:  
      ```
@@ -50,7 +50,7 @@ Connect the components as shown in the diagram below:
      - **HX711**  
      - **PubSubClient**  
      - **LiquidCrystal_PCF8574**  
-     ![Library Manager](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/Arduino%20%26%20MQTT/Fig%203.png)
+     ![Library Manager](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/Aruduino%20%26%20MQTT/Fig%203.png)
 ### 3. MQTT Environment Setup
 1. **Download MQTT software**  
    Install [Mosquitto MQTT software](https://mosquitto.org/download/), and use the default installation path: "C:\Program Files\mosquitto\"
@@ -60,9 +60,9 @@ Open the `mosquitto.conf` file in the installation directory and add the followi
 - **allow_anonymous true**
 3. **Start Mosquitto Broker service**  
 - Open **Windows Services**, locate **Mosquitto Broker**, and double-click it.  
-- ![Mosquitto Service](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/Arduino%20%26%20MQTT/Fig%204.png)  
+- ![Mosquitto Service](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/Aruduino%20%26%20MQTT/Fig%204.png)  
 - Start the **Mosquitto Broker** service.  
-  ![Start Service](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/Arduino%20%26%20MQTT/Fig%205.png)
+  ![Start Service](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/Aruduino%20%26%20MQTT/Fig%205.png)
 4. **Verify MQTT broker functionality**  
 - Open a command prompt (cmd) and navigate to the Mosquitto directory:  
   ```bash
