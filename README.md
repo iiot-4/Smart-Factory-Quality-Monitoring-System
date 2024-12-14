@@ -1,5 +1,5 @@
 # Smart Factory Quality Monitoring System
-This project is designed to measure weight using an ESP-32 microcontroller, load cell, and MQTT for data transmission. The system uploads the data to an AWS database for further analysis and prompts for regular updates of the measured object.
+This project is designed to measure weight using an ESP-32 microcontroller, load cell, and MQTT for data transmission. The system uploads the data to an AWS Cloud for further analysis and prompts for regular updates of the measured object.
 ## Features
 - Real-Time Detection of Irregularities 
 - Ensuring Consistent Product Quality 
@@ -80,48 +80,18 @@ Open the `mosquitto.conf` file in the installation directory and add the followi
   mosquitto_sub -h 192.168.XXX.XXX -t sensor/weight
   ```
   Replace `192.168.XXX.XXX` with your IPv4 address and `sensor/weight` with your desired topic.  
-### 4. Calibration and Program Execution
-1. **Connect the device**  
-Plug the ESP-32 into your computer via USB.
-2. **Select board and port**  
-- In the Arduino IDE, select the board type:  
-  ```
-  Tools -> Board -> esp32 -> NodeMCU-32S
-  ```
-- Select the correct port (viewable in **Device Manager**).
-3. **Run calibration**  
-- Open and upload the **HX711_Calibration** program.  
-- Prepare a test object with a known weight (e.g., a calibration weight).  
-- Modify the `sample_weight` variable to match the object's actual weight.  
-- Follow the on-screen instructions to calibrate and note the calibration value displayed.  
-4. **Run the MQTT script**  
-- Open the `connect_AWS.py` script and modify the following variables:  
-  - `MQTT_BROKER`: Set it to your MQTT broker's IPv4 address.  
-  - `MQTT_TOPIC`: Set it to your desired MQTT topic.  
-- Run the script.
-5. **Run the main program**  
-- Open the `Final_code` program in the Arduino IDE and modify:  
-  - `scale_factor`: Replace with the calibration value obtained earlier.  
-  - `ssid`: Set your WiFi network ID.  
-  - `Password`: Set your WiFi password.  
-  - `mqttServer`: Set the broker's IPv4 address.  
-  - `mqttTopic`: Set your desired MQTT topic.  
-- Upload the program to the ESP-32.
-## System Functionality
-- The system transmits weight data via MQTT every **10 seconds** to an AWS database for analysis.  
-- Every **15 seconds**, the system prompts the user to replace the measured object for continuous monitoring.
 ---
 # Software – AWS Cloud
 ## Local machine
 1. Program File:
-   - Create a SendData.py on local to send data to AWS Cloud's IoT SiteWise.
+   - Create a connect_AWS.py on local to send data to AWS Cloud's IoT SiteWise.
 2. Install Necessary Packages:
    - Ensure you have installed AWS SDK for Python (boto3) and other required Python packages like pandas.
    - Installation command: `pip install boto3`
 3. Configure AWS IAM Credentials:
-   - In the SendData.py, enter the Access_key and Secret_key provided by AWS Cloud to establish a secure connection with AWS.
+   - In the connect_AWS.py, enter the Access_key and Secret_key provided by AWS Cloud to establish a secure connection with AWS.
 4. Sending Data:
-   - In the SendData.py, set the data format to be sent to IoT SiteWise, such as measurements (e.g., weight).
+   - In the connect_AWS.py, set the data format to be sent to IoT SiteWise, such as measurements (e.g., weight).
    - The SendData.py will send data to AWS at specified intervals.
 ## AWS Cloud
 1. IAM User Setup:
@@ -167,8 +137,37 @@ Plug the ESP-32 into your computer via USB.
      ![Figure 9](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%209.png)
      ![Figure 10](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%2010.png)
      ![Figure 11](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%2011.png)
-## Process Completion and Verification
-1. Run the local SendData.py script to send measurement data to AWS Cloud.
-2. Log in to AWS SiteWise and confirm that the Measurements field in the Weight1 asset displays the latest data and timestamp.
-3. Log in to Grafana and confirm that the dashboard displays the transmitted data in real-time.
+
+# Calibration and Program Execution
+1. **Connect the device**  
+Plug the ESP-32 into your computer via USB.
+2. **Select board and port**  
+- In the Arduino IDE, select the board type:  
+  ```
+  Tools -> Board -> esp32 -> NodeMCU-32S
+  ```
+- Select the correct port (viewable in **Device Manager**).
+3. **Run calibration**  
+- Open and upload the **HX711_Calibration** program.  
+- Prepare a test object with a known weight (e.g., a calibration weight).  
+- Modify the `sample_weight` variable to match the object's actual weight.  
+- Follow the on-screen instructions to calibrate and note the calibration value displayed.  
+4. **Run the MQTT script**  
+- Open the `connect_AWS.py` script and modify the following variables:  
+  - `MQTT_BROKER`: Set it to your MQTT broker's IPv4 address.  
+  - `MQTT_TOPIC`: Set it to your desired MQTT topic.  
+- Run the script.
+5. **Run the main program**  
+- Open the `Final_code` program in the Arduino IDE and modify:  
+  - `scale_factor`: Replace with the calibration value obtained earlier.  
+  - `ssid`: Set your WiFi network ID.  
+  - `Password`: Set your WiFi password.  
+  - `mqttServer`: Set the broker's IPv4 address.  
+  - `mqttTopic`: Set your desired MQTT topic.  
+- Upload the program to the ESP-32.
+6. Log in to AWS SiteWise and confirm that the Measurements field in the Weight1 asset displays the latest data and timestamp.
+7. Log in to Grafana and confirm that the dashboard displays the transmitted data in real-time.
    ![Figure 12](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/AWS%20Cloud/Fig%2012.png)
+## System Functionality
+- The system transmits weight data via MQTT every **10 seconds** to an AWS database for analysis.  
+- Every **15 seconds**, the system prompts the user to replace the measured object for continuous monitoring.
