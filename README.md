@@ -1,18 +1,14 @@
 # Smart Factory Quality Monitoring System
 This project is designed to measure weight using an ESP-32 microcontroller, load cell, and MQTT for data transmission. The system uploads the data to an AWS database for further analysis and prompts for regular updates of the measured object.
----
 ## Features
 - Real-Time Detection of Irregularities 
 - Ensuring Consistent Product Quality 
 - Enhanced Data Transparency and Management Efficiency 
-- Building Long-Term Data Assets 
+- Building Long-Term Data Assets
 ---
-
 # System architecture
 ![插入圖片](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/System%20Architecture.png)
-
 ---
-
 # Hardware – Arduino
 ## Required Components
 - **NodeMCU ESP-32** 
