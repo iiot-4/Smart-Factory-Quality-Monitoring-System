@@ -13,7 +13,12 @@ This project is designed to measure weight using an ESP-32 microcontroller, load
 ---
 
 # Hardware – Arduino
-
+## Required Components
+- **NodeMCU ESP-32** x1  
+- **HX711** x1  
+- **LCD module**  
+- **Load cell**  
+*(For a detailed list of components, refer to the BOM file.)*
 ---
 
 # Software – AWS Cloud
