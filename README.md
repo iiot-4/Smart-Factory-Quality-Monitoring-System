@@ -1,4 +1,4 @@
-# InnoWeigh
+![image](https://github.com/user-attachments/assets/4e1d65bb-54dc-43ee-bed4-3b041ec26fa9)# InnoWeigh
 This project is designed to measure weight using an ESP-32 microcontroller, load cell, and MQTT for data transmission. The system uploads the data to an AWS Cloud for further analysis and prompts for regular updates of the measured object.
 ## Features
 - Real-Time Detection of Irregularities 
@@ -171,3 +171,8 @@ Plug the ESP-32 into your computer via USB.
 ## System Functionality
 - The system transmits weight data via MQTT every **10 seconds** to an AWS database for analysis.  
 - Every **15 seconds**, the system prompts the user to replace the measured object for continuous monitoring.
+## Innoweigh website
+- Link:https://nelsonsam0510.wixsite.com/innoweigh/system
+## Individual Assignment 
+
+
