@@ -27,7 +27,6 @@ Connect the components as shown in the diagram below:
 - The LCD module displays the measured weight and communicates with the ESP32 using the I2C protocol, which requires two connections:
 - The SDA pin (serial data) connects to ESP32 GPIO21.
 - The SCL pin (serial clock) connects to ESP32 GPIO22.
-![image](https://github.com/user-attachments/assets/fe1ff31e-9978-4b11-861c-86b23def43e1)
 
 ### 2. Arduino Environment Setup
 1. **Download and install Arduino IDE**  
