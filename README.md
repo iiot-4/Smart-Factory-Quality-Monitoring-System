@@ -173,7 +173,7 @@ Plug the ESP-32 into your computer via USB.
 - Every **15 seconds**, the system prompts the user to replace the measured object for continuous monitoring.
 ## Innoweigh website
 - Link:https://nelsonsam0510.wixsite.com/innoweigh/system
-## Individual Assignment 
+## Team Members's Role
 - 廖紫媗 :System Architecture Design, Database Development, Website Design ,PPT
 - 閻亭頤 :Oral Presentation​​
 - 陳元彬 :System Development, Hardware Architecture Setup ,PPT
