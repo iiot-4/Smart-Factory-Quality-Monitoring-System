@@ -174,5 +174,14 @@ Plug the ESP-32 into your computer via USB.
 ## Innoweigh website
 - Link:https://nelsonsam0510.wixsite.com/innoweigh/system
 ## Individual Assignment 
+- 廖紫媗 :System Architecture Design, Database Development, Website Design ,PPT
+- 閻亭頤 :Oral Presentation​​
+- 陳元彬 :System Development, Hardware Architecture Setup ,PPT
+- 邱琳箏 :System Architecture Design, Database Development, Github Writing, PPT  
+- 陳煒翔 :Product Documentation Writing, Website Design ,PPT
+
+
+
+
 
 
