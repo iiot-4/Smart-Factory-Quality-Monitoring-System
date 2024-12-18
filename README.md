@@ -20,6 +20,15 @@ This project is designed to measure weight using an ESP-32 microcontroller, load
 ### 1. Hardware Connections
 Connect the components as shown in the diagram below:  
 ![Hardware Connections](https://github.com/iiot-4/Smart-Factory-Quality-Monitoring-System/blob/main/Aruduino%20%26%20MQTT/Fig1_v2-removebg-preview.png)
+- For the HX711 connections:
+- The DT pin (data) connects to ESP32 digital pin 16.
+- The SCK pin (clock) connects to ESP32 digital pin 17.
+- The NodeMCU ESP32 serves as the main processing unit. It reads the data from the HX711, processes the weight information, displays it on the LCD, and uses Wi-Fi to send data via MQTT communication.
+- The LCD module displays the measured weight and communicates with the ESP32 using the I2C protocol, which requires two connections:
+- The SDA pin (serial data) connects to ESP32 GPIO21.
+- The SCL pin (serial clock) connects to ESP32 GPIO22.
+![image](https://github.com/user-attachments/assets/fe1ff31e-9978-4b11-861c-86b23def43e1)
+
 ### 2. Arduino Environment Setup
 1. **Download and install Arduino IDE**  
    Visit the [Arduino IDE download page](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE) and install it based on your operating system.  
